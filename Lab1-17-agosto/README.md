@@ -1,4 +1,4 @@
-<h1>Laboratório 1</h1>
+<h1>Laboratório 1a</h1>
 
 Laboratório realizado no dia 17 de agosto.
 
