@@ -13,13 +13,13 @@
 <h2>Índice</h2>
 
 <ul>
-<li><code>helloworldL.c</code>: Código-fonte de um simples Hello, world!.</li>
+<li><code>helloworldL.c</code>: Código-fonte de um simples "Hello, world!".</li>
 <li><code>Screenshot.png</code>: Screenshot do processo de push do arquivo teste.c para este repositório github.</li>
 </ul>
 
 <h2>Compilação</h2>
 
-Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal linux: <code>sudo yum install gcc</code>. A compilação dos arquivos .c deste repositório podem ser compilados da seguinte forma: <code>gcc exemplo.c</code>, em que o campo exemplo é substituído pelo nome do arquivo .c. Após isso, um arquivo <code>a.out</code> será gerado. Para executá-lo, basta digitar o seguinte comando: <code>./a.out</code>. Caso o arquivo gerado possua um nome diferente, basta substituir no campo a.out.
+Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal linux: <code>sudo yum install gcc</code>. A compilação dos arquivos .c deste repositório podem ser compilados da seguinte forma: <code>gcc exemplo.c</code>, em que o campo exemplo é substituído pelo nome do arquivo .c. Após isso, um arquivo <code>a.out</code> será gerado. Para executá-lo, basta digitar o seguinte comando: <code>./a.out</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code>a.out</code> pelo nome do arquivo gerado no comando anterior.
 
 <hr>
 <ins>Referências:</ins>
