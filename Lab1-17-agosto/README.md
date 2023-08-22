@@ -13,12 +13,8 @@
 <h2>Índice</h2>
 
 <ul>
-<li><code>Hello.c</code>: Código-fonte de um simples Hello, world!. Autora: Leila</li>
-<li><code>helloworldL.c</code>: Código-fonte de um simples Hello, world!. Autora: Livia</li>
-<li><code>teste.c</code>: Código-fonte de um simples Hello, world!. Autor: Diogo</li>
-<li><code>Diogo Hatz Screenshot.png</code>: Screenshot do processo de push do arquivo teste.c para este repositório github. Autor: Diogo</li>
-<li><code>image.png</code>: Screenshot do processo de push do arquivo helloworldL para este repositório github. Autora: Livia</li>
-<li><code>ScreenshotLeila.PNG</code>: Screenshot do processo de push do arquivo Hello.c para este repositório github. Autora: Leila</li>
+<li><code>helloworldL.c</code>: Código-fonte de um simples Hello, world!.</li>
+<li><code>Screenshot.png</code>: Screenshot do processo de push do arquivo teste.c para este repositório github.</li>
 </ul>
 
 <h2>Compilação</h2>
