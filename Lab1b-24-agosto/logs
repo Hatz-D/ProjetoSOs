@@ -1,0 +1,157 @@
+Exercício 1)
+
+elemento 1 na linha 1
+
+Exercício 2)
+Média B
+
+Exercício 3)
+
+1 2 3 4 5 6 7 8 9 
+  2 3 4 5 6 7 8 
+    3 4 5 6 7 
+      4 5 6 
+        5 
+
+Exercício 4)          
+Lucas 
+Ruan 
+
+Exercício 5)
+
+******Dimensao da matriz******
+Digite o numero de linhas
+Digite o numero de colunas
+
+******Digite as entradas da matriz******
+Digite as entradas para a 1 linha
+Digite as entradas para a 2 linha
+Digite as entradas para a 3 linha
+
+Matriz original:
+1 2 3 
+4 5 6 
+7 8 9 
+
+Linha 2 da matriz multiplicada pelo número 2:
+1 2 3 
+8 10 12 
+7 8 9 
+
+Coluna 3 da matriz multiplicada pelo número 0:
+1 2 0 
+8 10 0 
+7 8 0
+
+Exercício 6)
+ 
+******Dimensao da matriz******
+Digite o numero de linhas
+Digite o numero de colunas
+
+******Digite as entradas da matriz******
+Digite as entradas para a 1 linha
+Digite as entradas para a 2 linha
+Digite as entradas para a 3 linha
+
+Matriz original:
+  1   2   3 
+  4   5   6 
+  7   8   9 
+
+Matriz transposta:
+  1   4   7 
+  2   5   8 
+  3   6   9 
+
+Exercício 7)
+
+******Dados das pessoas******
+
+Pessoa 1: 
+Nome: Junior
+Idade: 20
+Peso: 70.00
+Altura: 1.75
+
+Pessoa 2: 
+Nome: Marcia
+Idade: 60
+Peso: 130.00
+Altura: 1.60
+
+Pessoa 3: 
+Nome: Carlos
+Idade: 15
+Peso: 80.30
+Altura: 1.90
+
+Exercício 8)
+
+Matriz original:
+ 10  20  30 
+ 50  60  70 
+ 90  11  22 
+
+Matriz transposta:
+ 10  50  90 
+ 20  60  11 
+ 30  70  22 
+
+Exercício 9)
+
+Matriz original:
+-10 -20 -30 
+-50  60 -70 
+-90 -11 -22 
+
+Matriz sem negativo:
+ 10  20  30 
+ 50  60  70 
+ 90  11  22 
+
+Exercício 10)
+
+Matriz original:
+1 2 3 
+4 5 6 
+7 8 9 
+
+Linha 2 da matriz multiplicada pelo número 2:
+1 2 3 
+8 10 12 
+7 8 9 
+
+Coluna 3 da matriz multiplicada pelo número 0:
+1 2 0 
+8 10 0 
+7 8 0 
+
+Exercício 11)
+
+Matriz original:
+1 2 3 
+4 5 6 
+7 8 9 
+
+L2 = L1 + L2:
+1 2 3 
+5 7 9 
+7 8 9 
+
+L2 = L1 * L2
+1 2 3 
+5 14 27 
+7 8 9 
+
+Exercício 12)
+
+O caractere 'l' se encontra na posição 5 da palavra Paralelepipedo
+
+Exercício 13)
+
+A palavra Paralelepipedo com o caracterere na posição 5 removido é: Paraelepipedo
+
+Exercício 14)
+
+A palavra Paralelepipedo com o caracterere 'Z' adicionado na posição 5 é: ParaZlelepipedo
