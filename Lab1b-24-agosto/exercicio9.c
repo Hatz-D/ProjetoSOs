@@ -24,7 +24,7 @@ int main() {
     int l, c, trans[tamC][tamL];
 
    int mat[tamL][tamC] ={{-10, -20, -30},
-                        {-50, -60, -70},
+                        {-50, 60, -70},
                         {-90, -11, -22} };
 
     printf("\nMatriz original:\n");
