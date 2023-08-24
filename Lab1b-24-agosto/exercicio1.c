@@ -15,6 +15,6 @@ int main(void) {
       }
     }
   }
-  printf("elemento "%d na linha %d\n", menor, linha);
+  printf("elemento %d na linha %d\n", menor, linha);
   return 0;
 }
