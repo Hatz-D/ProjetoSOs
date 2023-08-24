@@ -4,15 +4,17 @@
 char* adicionar(char * string, int posicao, char caracter){
 	posicao -= 1;
 	int count = 0;
+
 	while(string[count] != '\0'){
 		count+=1;
 	}
 
+	for(int i = count; i >= posicao; i--){
+		string[i+1] = string[i];
+	}
 
 
-
-
-	string[posicao] = '\0';;
+	string[posicao] = caracter;
 	return string;
 }
 
@@ -21,7 +23,7 @@ int main(){
 	strcpy(string, "Paralelepipedo");
 	strcpy(aux, "Paralelepipedo");
 	char * p = string;
-	p = adicionar(p, 5);
-	printf("A palavra %s com o caracterere 'a' adicionado na posição 5 é: %s\n", aux, string);	
+	p = adicionar(p, 5, 'Z');
+	printf("A palavra %s com o caracterere 'Z' adicionado na posição 5 é: %s\n", aux, string);	
 	return 0;
 }
