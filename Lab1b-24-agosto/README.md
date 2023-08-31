@@ -21,7 +21,7 @@
 
 Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal linux: <code>sudo yum install gcc</code>. A compilação dos arquivos .c deste repositório podem ser compilados da seguinte forma: <code>gcc exemplo.c</code>, em que o campo exemplo é substituído pelo nome do arquivo .c. Após isso, um arquivo <code>a.out</code> será gerado. Para executá-lo, basta digitar o seguinte comando: <code>./a.out</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code>a.out</code> pelo nome do arquivo gerado no comando anterior.
 
-<img src="https://drive.google.com/uc?export=view&id=1rAy3DnjoXf5X_61qr8sfgXOGc6aXsoxW" alt="Processo de compilação">
+<img src="https://github.com/Hatz-D/ProjetoSOs/blob/main/src/gcc1b.png" alt="Processo de compilação">
 
 <hr>
 
@@ -29,4 +29,4 @@ Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se ne
 
 Para realizar a geração do log de execução dos programas aqui disponibilizados, o método de redirecionamento de saída padrão do Linux foi utilizado por meio do operador de append: <code>>></code>. Os códigos-fonte foram compilados, executados e as suas saídas foram adicionadas ao arquivo "logs" aqui disponível através do seguinte comando: <code>gcc exercicio1.c -o teste.bin && ./teste.bin >> logs</code>. Vale ressaltar que, após a geração do log em sua totalidade, esse foi formatado para melhor visualização das saídas correspodentes a cada exercício. O comando acima foi utilizado para todos os 14 códigos-fonte aqui disponíveis.
 
-<img src="https://drive.google.com/uc?export=view&id=1wPCkqd-13y_8u8O-yeZ8pj5LDkSggAa3" alt="Processo de geração do log">
+<img src="https://github.com/Hatz-D/ProjetoSOs/blob/main/src/logs1b.png" alt="Processo de geração do log">

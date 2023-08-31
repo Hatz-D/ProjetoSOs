@@ -1,0 +1,65 @@
+**fork.c**
+
+I am process 1098 and my x is 1
+I am process 1099 and my x is 1
+
+**forkPaieFilho.c**
+
+I am parent 1106
+I am child 1107
+
+**ProcessID.c**
+
+I am parent 1113, ID = 1113
+I am child 1114, ID = 1113
+
+**ProcessosID.c**
+
+I am process 1120
+My parent is 957
+
+**cadeiaProcessoStdout.c**
+ 
+i:1 process ID:1236 parent ID:957 child ID:1237
+i:2 process ID:1237 parent ID:1 child ID:1238
+i:3 process ID:1238 parent ID:1 child ID:1239
+i:4 process ID:1239 parent ID:1 child ID:1240
+i:5 process ID:1240 parent ID:1 child ID:1241
+i:6 process ID:1241 parent ID:1 child ID:1242
+i:7 process ID:1242 parent ID:1 child ID:1243
+i:8 process ID:1243 parent ID:1 child ID:1244
+i:9 process ID:1244 parent ID:1 child ID:1245
+i:10 process ID:1245 parent ID:1 child ID:1246
+i:11 process ID:1246 parent ID:1 child ID:1247
+i:12 process ID:1247 parent ID:1 child ID:1248
+i:13 process ID:1248 parent ID:1 child ID:1249
+i:14 process ID:1249 parent ID:1 child ID:1250
+i:15 process ID:1250 parent ID:1 child ID:1251
+i:16 process ID:1251 parent ID:1 child ID:1252
+i:17 process ID:1252 parent ID:1 child ID:1253
+i:18 process ID:1253 parent ID:1 child ID:1254
+i:19 process ID:1254 parent ID:1 child ID:1255
+i:20 process ID:1255 parent ID:1 child ID:0
+
+**cadeiaProcessosStderr.c** // Com redirecionamento do stderr para stdout!
+
+i:1 process ID:1261 parent ID:957 child ID:1262
+i:2 process ID:1262 parent ID:1 child ID:1263
+i:3 process ID:1263 parent ID:1 child ID:1264
+i:4 process ID:1264 parent ID:1 child ID:1265
+i:5 process ID:1265 parent ID:1 child ID:1266
+i:6 process ID:1266 parent ID:1 child ID:1267
+i:7 process ID:1267 parent ID:1 child ID:1268
+i:8 process ID:1268 parent ID:1 child ID:1269
+i:9 process ID:1269 parent ID:1 child ID:1270
+i:10 process ID:1270 parent ID:1 child ID:1271
+i:11 process ID:1271 parent ID:1 child ID:1272
+i:12 process ID:1272 parent ID:1 child ID:1273
+i:13 process ID:1273 parent ID:1 child ID:1274
+i:14 process ID:1274 parent ID:1 child ID:1275
+i:15 process ID:1275 parent ID:1 child ID:1276
+i:16 process ID:1276 parent ID:1 child ID:1277
+i:17 process ID:1277 parent ID:1 child ID:1278
+i:18 process ID:1278 parent ID:1 child ID:1279
+i:19 process ID:1279 parent ID:1 child ID:1280
+i:20 process ID:1280 parent ID:1 child ID:0
