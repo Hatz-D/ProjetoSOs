@@ -19,6 +19,7 @@
 <li><code>ProcessosID.c</code>: Código-fonte relativo ao slide de número 9 do powerpoint de Processos</li>
 <li><code>cadeiaProcessoStdout.c</code>: Código-fonte relativo ao slide de número 10 do powerpoint de Processos</li>
 <li><code>cadeiaProcessoStderr.c</code>: Código-fonte relativo ao slide de número 10 do powerpoint de Processos</li>
+<li><code>logs</code>: Log das saídas relativas à execução dos programas acima</li>
 </ul>
 
 <h2>Compilação</h2>
