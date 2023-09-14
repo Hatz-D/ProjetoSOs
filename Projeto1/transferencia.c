@@ -57,12 +57,11 @@ int main(int argc, char* argv[]) {
         pthread_join(thread_array[i], NULL);
     }
 
-    printf("Conta from: %d\n", from.saldo);
-    printf("Conta to: %d\n", to.saldo);
+    printf("Conta from: %.2f\n", from.saldo);
+    printf("Conta to: %.2f\n", to.saldo);
 
     pthread_mutex_destroy(&mutex);
     free(thread_array);
-    free(arguments[2]);
 
     return 0;
 }
