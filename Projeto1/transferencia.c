@@ -12,12 +12,13 @@ typedef struct {
 
 void* transferencia(void* arguments) {
     conta** contas = (conta**)arguments;
+    pthread_mutex_lock(&mutex);
 
     if ((*contas[0]).saldo < (*contas[2]).saldo) {
-        return NULL;
+	pthread_mutex_unlock(&mutex);
+	return NULL;
     }
 
-    pthread_mutex_lock(&mutex);
     (*contas[0]).saldo -= (*contas[2]).saldo;
     (*contas[1]).saldo += (*contas[2]).saldo;
     pthread_mutex_unlock(&mutex);
