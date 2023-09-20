@@ -28,8 +28,8 @@ Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] 
 
 <ul>
 <li><code>[Argumento 1]</code>: Quantidade de transações (inteiro).</li>
-<li><code>[Argumento 2]</code>: Valor das transações (decimal)</li>
-<li><code>[Argumento 3]</code>: Fluco da transferência.(0 para From --> To ou 1 para To --> From)</li>
+<li><code>[Argumento 2]</code>: Valor das transações (decimal).</li>
+<li><code>[Argumento 3]</code>: Fluxo da transferência (0 para From --> To | 1 para To --> From).</li>
 
 
 <hr>
