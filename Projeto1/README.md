@@ -30,7 +30,7 @@ Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] 
 <li><code>[Argumento 1]</code>: Quantidade de transações (inteiro).</li>
 <li><code>[Argumento 2]</code>: Valor das transações (decimal).</li>
 <li><code>[Argumento 3]</code>: Fluxo da transferência (0 para From --> To | 1 para To --> From).</li>
-
+</ul>
 
 <hr>
 <h2>Resultados</h2>
