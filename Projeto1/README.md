@@ -24,7 +24,13 @@ Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se ne
 <hr>
 <h2>Execução</h2>
 
-Para executá-lo, basta digitar o seguinte comando: ./a.out [Argumento 1] [Argumento 2] [Argumento 3]. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo a.out pelo nome do arquivo gerado no comando anterior com -o.
+Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] [Argumento 2] [Argumento 3]</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code> a.out</code> pelo nome do arquivo gerado no comando anterior.
+
+<ul>
+<li><code>[Argumento 1]</code>: Quantidade de transações (inteiro).</li>
+<li><code>[Argumento 2]</code>: Valor das transações (decimal)</li>
+<li><code>[Argumento 3]</code>: Fluco da transferência.(0 para From --> To ou 1 para To --> From)</li>
+
 
 <hr>
 <h2>Resultados</h2>
