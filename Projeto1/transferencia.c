@@ -70,8 +70,13 @@ int main(int argc, char* argv[]) {
         pthread_join(thread_array[i], NULL);
     }
 
-    printf("From -> To = %.2f\n", from_to.saldo);
-    printf("To -> From = %.2f\n\n", to_from.saldo);
+    printf("From -> To = %d\n", (int)from_to.saldo);
+    printf("To -> From = %d\n\n", (int)to_from.saldo);
+
+    if(from_to.saldo + to_from.saldo != num) {
+	    printf("Um total de %d transações de %d falharam devido a falta de saldo!\n\n", (int)(num - from_to.saldo - to_from.saldo), num);
+    }
+
     printf("Conta from: %.2f\n", from.saldo);
     printf("Conta to: %.2f\n", to.saldo);
 

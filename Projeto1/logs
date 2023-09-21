@@ -1,0 +1,47 @@
+From -> To = 55
+To -> From = 45
+
+Conta from: 90.00
+Conta to: 110.00
+From -> To = 49
+To -> From = 49
+
+Um total de 2 transações de 100 falharam devido a falta de saldo!
+
+Conta from: 100.00
+Conta to: 100.00
+From -> To = 35
+To -> From = 35
+
+Um total de 30 transações de 100 falharam devido a falta de saldo!
+
+Conta from: 100.00
+Conta to: 100.00
+From -> To = 472
+To -> From = 474
+
+Um total de 54 transações de 1000 falharam devido a falta de saldo!
+
+Conta from: 120.00
+Conta to: 80.00
+From -> To = 348
+To -> From = 349
+
+Um total de 303 transações de 1000 falharam devido a falta de saldo!
+
+Conta from: 200.00
+Conta to: 0.00
+From -> To = 3330
+To -> From = 3330
+
+Um total de 3340 transações de 10000 falharam devido a falta de saldo!
+
+Conta from: 100.00
+Conta to: 100.00
+From -> To = 0
+To -> From = 0
+
+Um total de 100 transações de 100 falharam devido a falta de saldo!
+
+Conta from: 100.00
+Conta to: 100.00
