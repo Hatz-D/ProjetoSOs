@@ -20,7 +20,9 @@
 <h2>Compilação</h2>
 
 Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal Linux: <code>sudo yum install gcc</code>. A compilação do arquivo transferencia.c deste repositório pode ser realizada da seguinte forma: <code>gcc  transferencia.c -lpthread</code>. Após isso, um arquivo <code>a.out</code> será gerado.
+
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Gcc.png" alt="Compilação">
+
 <hr>
 <h2>Execução</h2>
 
@@ -35,7 +37,8 @@ Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] 
 
 <hr>
 <h2>Resultados</h2>
-O resultado conseguiu alcançar  os objetivos, como mostrado nas imagens abaixo, uma redução da conta To/From e vice-versa até zerar.
+
+A saída do código mostra a quantidade de transações ocorridas, saldo final das duas contas e caso não seja o suficiente, também mostra quantas transações falharam devido a falta de saldo.  
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Testes.png" alt="Bateria de testes">
 
@@ -45,6 +48,10 @@ O resultado conseguiu alcançar  os objetivos, como mostrado nas imagens abaixo,
 <hr>
 <h2>Processos</h2>
 
-Para que o resultado acima fosse executado com facilidade, foi necessário a adição de thread e multi-thread.
+Para que o resultado acima fosse executado com facilidade, foram adicionados as bibliotecas pthread, para usar thread e mutex  e a biblioteca  time, para poder gerar números aleatórios para o fluxo de transferência.
+
+Outras modificações que tivemos foi a adição da função transferência, na qual é usada para a transferência de dinheiro das contas, sendo executada por cada thread; modificação da Main, na qual aceita dois argumentos, sendo elas a quantidade de transições e o valor das transações; O uso de um array de threads `thread_array`, que é alocado dinamicamente para executar as transações. O número de threads é determinado pelo valor passado como argumento; O uso de um mutex  para garantir que apenas uma thread por vez possa acessar a zona de memória crítica por vez na função "transferência"; a criação de um loop,passando o array de contas como argumento, para realizar as transferências.
+
+Após o termino do código,o mutex é destruído e a memória alocada dinamicamente para o array de threads e argumentos é liberada.
 
 
