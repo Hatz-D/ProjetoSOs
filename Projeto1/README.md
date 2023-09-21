@@ -44,6 +44,6 @@ O resultado conseguiu alcançar  os objetivos, como mostrado nas imagens abaixo,
 <hr>
 <h2>Processos</h2>
 
-Para que o resultado acima fosse executado com facilidade, foi necessário a adição de thread e multi-thread
+Para que o resultado acima fosse executado com facilidade, foi necessário a adição de thread e multi-thread.
 
 
