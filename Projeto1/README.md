@@ -25,7 +25,9 @@ Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se ne
 <h2>Execução</h2>
 
 Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] [Argumento 2]</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code> a.out</code> pelo nome do arquivo gerado no comando anterior.
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/Stderr.png" alt="Execução">
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Stderr.png" alt = "Mensagem de erro ao informar parâmetros errôneos">
+
 <ul>
 <li><code>[Argumento 1]</code>: Quantidade de transações (inteiro).</li>
 <li><code>[Argumento 2]</code>: Valor das transações (decimal).</li>
@@ -39,7 +41,6 @@ O resultado conseguiu alcançar  os objetivos, como mostrado nas imagens abaixo,
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Gera%C3%A7%C3%A3o%20do%20Log.png" alt="Geração do log de execução">
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Stderr.png" alt = "Mensagem de erro ao informar parâmetros errôneos">
 
 <hr>
 <h2>Processos</h2>
