@@ -34,8 +34,12 @@ Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] 
 <hr>
 <h2>Resultados</h2>
 O resultado conseguiu alcançar  os objetivos, como mostrado nas imagens abaixo, uma redução da conta To/From e vice-versa até zerar.
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/To-from.png" alt="Teste 1: To-From">
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/From-to.png" alt="Teste 0: From-To">
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Testes.png" alt="Bateria de testes">
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Gera%C3%A7%C3%A3o%20do%20Log.png" alt="Geração do log de execução">
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Stderr.png" alt = "Mensagem de erro ao informar parâmetros errôneos">
 
 <hr>
 <h2>Processos</h2>
