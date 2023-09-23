@@ -18,11 +18,11 @@
 </ul>
 
 <h2>Desnvolvimento</h2>
-<h1>Problema</h1>
+<h3>Problema</h3>
 O código original enfrenta um problema relacionado à concorrência inadequada entre subprocessos. Nesse código, subprocessos são gerados usando a função <code>clone</code>, onde cada subprocesso representa uma cópia independente do processo pai e realiza operações de transferência. O problema central desse código reside na falta de mecanismos adequados para sincronizar as transações, o que pode resultar em resultados incorretos ou inesperados. Existe uma condição de corrida no código, onde vários subprocessos tentam executar a função <code>transferencia</code> simultaneamente. Essa questão surge devido ao compartilhamento dos saldos entre os subprocessos.
 
 <hr>
-<h1>Solução</h1>
+<h3>Solução</h3>
 O código desenvolvido para solucionar este problema é uma adaptação do código original. Iniciamos incluindo as bibliotecas necessárias, como <code>stdio</code> para entrada e saída padrão, <code>pthread</code> para manipulação de threads, <code>stdlib</code> para alocação de memória e <code>time</code> para geração de números aleatórios. O código simula transações bancárias concorrentes entre duas contas, chamadas <code>from</code>  e <code>to</code>. Ele utiliza threads para representar as diferentes transações que ocorrem simultaneamente. Os Mutexes (mutex de exclusão mútua) são utilizados para garantir que somente uma thread por vez possa acessar e modificar as contas, evitando conflitos e inconsistências nos saldos. Quando a thread sai da seção critica, o mutex é liberado, permitindo que outras threads acessem a seção crítica e executem suas operações em segurança.
 
 O programa aceita dois argumentos da linha de comando: o primeiro argumento representa o número de transações a serem realizadas, enquanto o segundo argumento indica o valor de cada transação. Ele começa com saldos iniciais nas contas e, em seguida, cria threads para simular as transações. Durante a execução, as threads verificam se há saldo suficiente na conta de origem antes de efetuar a transferência. Ao término da execução, o programa exibe os saldos das contas <code>from</code> e <code>to</code>, juntamente com o número de transações bem-sucedidas e as que falharam devido à falta de saldo.
