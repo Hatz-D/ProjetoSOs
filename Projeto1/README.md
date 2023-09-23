@@ -59,4 +59,4 @@ A saída do código mostra a quantidade de transações ocorridas, saldo final d
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Testes.png" alt="Bateria de testes">
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Gera%C3%A7%C3%A3o%20do%20Log.png" alt="Geração do log de execução"
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Gera%C3%A7%C3%A3o%20do%20Log.png" alt="Geração do log de execução">
