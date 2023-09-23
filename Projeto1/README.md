@@ -14,7 +14,7 @@
 
 <ul>
 <li><code>transferencia.c</code>: Código-fonte do projeto.</li>
-<li><code>logs<code>: Registro de execução criado no ambiente virtual da AWS.</li>
+<li><code>logs</code>: Registro de execução criado no ambiente virtual da AWS.</li>
 </ul>
 
 <h2>Desnvolvimento</h2>
