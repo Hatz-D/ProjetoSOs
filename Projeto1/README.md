@@ -19,7 +19,7 @@
 
 <h2>Desnvolvimento</h2>
 <h3>Problema</h3>
-O código original enfrenta um problema relacionado à concorrência inadequada entre subprocessos. Nesse código, subprocessos são gerados usando a função <code>clone</code>, onde cada subprocesso representa uma cópia independente do processo pai e realiza operações de transferência. O problema central desse código reside na falta de mecanismos adequados para sincronizar as transações, o que pode resultar em resultados incorretos ou inesperados. Existe uma condição de corrida no código, onde vários subprocessos tentam executar a função <code>transferencia</code> simultaneamente. Essa questão surge devido ao compartilhamento dos saldos entre os subprocessos.
+O código original enfrenta um problema relacionado à concorrência inadequada entre subprocessos. Nesse código, subprocessos são gerados usando a função <code>clone</code>, onde cada subprocesso representa uma cópia independente do processo pai e realiza operações de transferência. É importante mencionar que os processos filhos compartilham com o processo pai partes de seu contexto, como: espaço de sistema de arquivos, descritores de arquivo, tabela de tratamento de sinais e espaço de endereçamento virtual. O problema central desse código reside na falta de mecanismos adequados para sincronizar as transações, o que pode resultar em resultados incorretos ou inesperados. Existe uma condição de corrida no código, onde vários subprocessos tentam executar a função <code>transferencia</code> simultaneamente. Essa questão surge devido ao compartilhamento dos saldos entre os subprocessos.
 
 <hr>
 <h3>Solução</h3>
@@ -29,7 +29,7 @@ O programa aceita dois argumentos da linha de comando: o primeiro argumento repr
 
 Além disso o código adaptado:
 <ul>
-<li>Introduz a escolha aleatória da conta de origem e destino para cada thread (0 para 'from' --> 'to' | 1 para 'to' --> 'from').</li>
+<li>Introduz a escolha aleatória da conta de origem e destino para cada thread (0 para 'from' --> 'to' | 1 para 'to' --> 'from') através da modulação por dois de números pseudoaleatórios gerados.</li>
 <li>Após a conclusão de todas as threads e operações o código 'destrói' o mutex, liberando os recursos alocados.</li>
 </ul>
 
@@ -58,5 +58,10 @@ Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] 
 A saída do código mostra a quantidade de transações ocorridas, saldo final das duas contas e caso não seja o suficiente, também mostra quantas transações falharam devido a falta de saldo.  
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Testes.png" alt="Bateria de testes">
+
+<hr>
+<h2>Geração do log de execução</h2>
+
+O log de execução do programa foi gerado através do seguinte comando: <code>./transferencia.bin X Y >> logs</code>, que representa o append da saída do código no arquivo <code>logs</code>.
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto1-Gera%C3%A7%C3%A3o%20do%20Log.png" alt="Geração do log de execução">
