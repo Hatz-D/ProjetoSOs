@@ -26,18 +26,24 @@ int matrizB[10][10] = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
 
 int matrizC[10][10];
 
+pthread_mutex_t mutex;
+
 void * multiplicamatrizes(void * args) {
 	int * arguments = (int*) args;
 	int i = arguments[0];
 	int j = arguments[1];
 	int n = arguments[2];
 
-	matrizC[i][j] = 0;
+	int celula = 0;
 
 	for(int k = 0; k < n; k++) {
-		matrizC[i][j] += matrizA[i][k] * matrizB[k][j];
+		celula += matrizA[i][k] * matrizB[k][j];
 	}
 
+	pthread_mutex_lock(&mutex);
+	matrizC[i][j] = celula;
+	pthread_mutex_unlock(&mutex);
+	free(arguments);
 	return NULL;
 }
 
@@ -63,12 +69,16 @@ int main() {
 	}
 
 	pthread_t* thread_array = malloc(m * p * sizeof(pthread_t));
+	pthread_mutex_init(&mutex, NULL);
 
 	int contador = 0;
 
 	for(int i = 0; i < m; i++) {
 		for(int j = 0; j < p; j++) {
-			int args[3] = {i, j, n1};
+			int * args = (int*) malloc(3 * sizeof(int));
+			args[0] = i;
+			args[1] = j;
+			args[2] = n1;
 			pthread_create(&thread_array[contador], NULL, multiplicamatrizes, (void*)args);
 			contador++;
 		}
