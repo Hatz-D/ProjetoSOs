@@ -26,7 +26,7 @@ int matrizB[10][10] = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
 
 int matrizC[10][10];
 
-void * multiplicamatrizes(void* args) {
+void * multiplicamatrizes(void * args) {
 	int * arguments = (int*) args;
 	int i = arguments[0];
 	int j = arguments[1];
@@ -41,10 +41,10 @@ void * multiplicamatrizes(void* args) {
 	return NULL;
 }
 
-void imprimematriz(int i, int j, int matriz[i][j]) {
-	for(int k = 0; k < i; k++) {
-		for(int l = 0; l < j; l++) {
-			printf("%d ", matriz[k][l]);
+void imprimematriz(int matriz[][10], int linha, int coluna) {
+	for(int i = 0; i < linha; i++) {
+		for(int j = 0; j < coluna; j++) {
+			printf("%d ", matriz[i][j]);
 		}
 
 		printf("\n");
@@ -78,11 +78,11 @@ int main() {
 		pthread_join(thread_array[i], NULL);
 	}
 
-	printf("Matriz A:\n");
+	printf("\nMatriz A:\n");
 	imprimematriz(matrizA, m, n1);
-	printf("Matriz B:\n");
+	printf("\nMatriz B:\n");
 	imprimematriz(matrizB, n2, p);
-	printf("Matriz C = Matriz A x Matrix B:\n");
+	printf("\nMatriz C = Matriz A x Matrix B:\n");
 	imprimematriz(matrizC, m, p);
 
 	return 0;
