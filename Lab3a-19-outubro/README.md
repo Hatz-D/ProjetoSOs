@@ -2,7 +2,7 @@
 
 <h3>Laboratório realizado no dia 19 de outubro</h3>
 
-<ins>Conteúdo:</ins> Neste laboratório, exploramos a multiplicação de matrizes com o uso de threads em C. O programa realiza a multiplicação de duas matrizes, A e B, para obter a matriz resultante C. O código utiliza threads para distribuir o trabalho de multiplicação entre diferentes processos.
+<ins>Conteúdo:</ins> Neste laboratório, exploramos a multiplicação de matrizes com o uso de threads em C. O programa realiza a multiplicação de duas matrizes, A e B, para obter a matriz resultante C. O código utiliza pthreads para distribuir o trabalho de multiplicação concorrentemente.
 
 <ins>Integrantes:</ins>
 
@@ -17,9 +17,23 @@
 <li><code>log</code>: Log das saída relativa à execução do programa acima.
 </ul>
 
+<hr>
+<h2>Exercício</h2>
+A função multiplicamatrizes é responsável por calcular cada célula da matriz C. Ela recebe um argumento com as coordenadas da célula a ser calculada (<code>i</code> e <code>j</code>), bem como o número de colunas n da matriz A, que é igual ao número de linhas n da matriz B (<code>n</code>). As threads criadas posteriormente executarão essa função para efetuar os cálculos de cada índice da matriz C.
+
+A função imprimematriz é utilizada para exibir as matrizes na tela, facilitando a visualização dos resultados.
+
+Na função main, as dimensões das matrizes A e B são obtidas e verificadas para garantir que sejam compatíveis para a multiplicação. O programa, então, aloca um array de threads chamado <code>thread_array</code>.
+
+Um loop aninhado percorre as coordenadas das células de matriz C. Para cada célula, uma nova thread é criada utilizando <code>pthread_create</code>. É importante ressaltar que o vetor de argumentos das threads é alocado dinamicamente para cada thread para garantir que os argumentos <code>i</code> e <code>j</code> sejam passados para a função multiplicamatrizes de forma exclusiva, isto é, cada thread irá calcular uma célula delimitada pelos argumentos <code>i</code> e <code>j</code> fornecidos. Caso o vetor de argumentos não fosse criado dinamicamente para cada iteração dos laços alinhados, uma condição de corrida existiria para os valores presentes no endereço de memória compartilhado entre as threads. Alocando-se esse vetor dinamicamente a cada iteração garante que cada array de argumentos possua um endereço exclusivo, o que soluciona a condição de corrida encontrada. Ao fim de cada execução da função multiplicamatrizes, esse vetor de argumentos é desalocado.
+
+Depois de criar todas as threads, um segundo loop (for) aguarda a conclusão de cada uma com pthread_join, garantindo que todas as threads tenham terminado seus cálculos antes de prosseguir.
+
+Por fim, as matrizes A, B e C são impressas na tela usando a função imprimematriz, permitindo que o resultado da multiplicação de matrizes seja visualizado.
+
 <h2>Compilação</h2>
 
-Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal linux: <code>sudo yum install gcc</code>. A compilação dos arquivos .c deste repositório podem ser compilados da seguinte forma: <code>gcc exemplo.c</code>, em que o campo exemplo é substituído pelo nome do arquivo .c. Após isso, um arquivo <code>a.out</code> será gerado
+Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal linux: <code>sudo yum install gcc</code>. A compilação dos arquivos .c deste repositório podem ser compilados da seguinte forma: <code>gcc exemplo.c -lpthread</code>, em que o campo exemplo é substituído pelo nome do arquivo .c. Após isso, um arquivo <code>a.out</code> será gerado. Vale ressaltar que como o código-fonte deste laboratório utiliza pthreads, é necessário adicionar o argumento <code>-lpthread</code> durante a compilação do programa.
 
 <img src="https://github.com/Hatz-D/ProjetoSOs/blob/main/src/3a-compilacao.png" alt="Processo de compilação">
 
@@ -35,16 +49,4 @@ Para realizar a geração do log de execução dos programas aqui disponibilizad
 
 <img src="https://github.com/Hatz-D/ProjetoSOs/blob/main/src/3a-logs.png" alt="Processo de geração do log">
 
-<hr>
-<h2>Exercício</h2>
-A função multiplicamatrizes é responsável por calcular cada célula da matrizC. Ela recebe um argumento com as coordenadas da célula a ser calculada (<code>i</code> e <code>j</code>), bem como o número de colunas n da matriz A, que é igual ao número de linhas n da matriz B (<code>n</code>). As threads criadas posteriormente executarão essa função para efetuar os cálculos.
 
-A função imprimematriz é utilizada para exibir as matrizes na tela, facilitando a visualização dos resultados.
-
-Na função main, as dimensões das matrizes A e B são obtidas e verificadas para garantir que sejam compatíveis para a multiplicação. O programa, então, aloca um array de threads chamado <code>thread_array</code>.
-
-Um loop aninhado percorre as coordenadas das células de matrizC. Para cada célula, uma nova thread é criada utilizando <code>pthread_create</code>.
-
-Depois de criar todas as threads, um segundo loop (for) aguarda a conclusão de cada uma com pthread_join, garantindo que todas as threads tenham terminado seus cálculos antes de prosseguir.
-
-Por fim, as matrizes A, B e C são impressas na tela usando a função imprimematriz, permitindo que você veja o resultado da multiplicação.
