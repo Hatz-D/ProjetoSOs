@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
     }
 
     pi = 4 * pi;
-    printf("\nNúmero de threads: %d\nQuantidade de somas por thread: %d\nValor de pi: %.15lf\n", n, slice, pi);
+    printf("\nNúmero de threads: %d\nQuantidade de somas por thread: %d\nValor de pi: %.20lf\n", n, slice, pi);
 
     free(thread_array);
     return 0;
