@@ -16,7 +16,7 @@ void* calculaPi(void* arguments) {
     int inicio = n * slice;
     int fim = inicio + slice;
     
-    if(n % 2 == 0) {
+    if(inicio % 2 == 0) {
     	factor = 1.0;
     }
 
