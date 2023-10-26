@@ -45,5 +45,5 @@ int main(int argc, char* argv[]) {
     }
 
     pi = 4 * pi;
-    printf("\nNúmero de threads: %d\nValor de pi: %lf\n", n, pi);
+    printf("\nNúmero de threads: %d\nValor de pi: %.15lf\n", n, pi);
 }
