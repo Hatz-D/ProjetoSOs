@@ -23,6 +23,7 @@
 <h2>Exercício</h2>
 A função calculaPi é responsável por calcular valores parciais da série de Taylor, valores os quais, ao serem somados, representam uma aproximação do valor de pi. Ao passo em que as somas parciais realizadas por cada thread são exclusivas de cada thread, a variável relativa à soma total das inúmeras parcelas é compartilhada entre todas as threads As threads criadas posteriormente executarão a função supracitada para efetuar os cálculos de valores parciais da série delimitados por intervalos fornecidos pelo usuário ao executar o programa.
 
+
 <ol>
 <li><code>Arg1</code>: Quantidade de threads a serem executadas pelo programa.</li>
 <li><code>Arg2</code>: Número de iterações da série de Taylor por cada thread</li>
@@ -36,7 +37,8 @@ Ao implementar o código de aproximação do valor de pi concorrentemente utiliz
 
 <h3>Item b)</h3>
 Além das divergências nos resultados observados provenientes da condição de corrida existente no acesso à variável que armazena o valor de pi, também existe uma divergência ainda mais alarmante no que diz respeito à ordem imprevisível em que as threads serão executadas pelo scheduler, o que, por mais que não deveria surtir nenhum impacto no resultado do valor de pi calculado, uma vez que operações de soma e subtração são comutativas e associativas, acaba por afetar o resultado, considerando que existem notórios erros de arredondamento em operações com ponto flutuante, os quais se agravam quando acumulam. Devido a esse fenômeno e somado à condição de corrida existente na leitura e modificação do valor de pi caso o mutex não seja utilizado, é difícil de visualizar qual dos dois atores está influenciando os resultados obtidos, se é que não ambos.
-Para mitigar o problema de arredondamento com ponto flutuante supracitado, isto é, fazer com que os resultados obtidos sejam constantes, é possível criar um vetor que armazenará as somas parciais de cada thread e, ao fim da execução de todas as threads, iterar por esse vetor para recuperar a soma total da aproximação de pi. No entanto, essa abordagem dispensa a utilização de mutex e está fora do escopo deste laboratório.
+
+Para mitigar o problema de arredondamento com ponto flutuante supracitado, isto é, fazer com que os resultados obtidos sejam constantes, é possível criar um vetor que armazenará as somas parciais de cada thread e, ao fim da execução de todas as threads, iterar por esse vetor para recuperar a soma total da aproximação de pi. No entanto, essa abordagem dispensa completamente a utilização de mutex por não existir uma região crítica de acesso na memória, o que foge do escopo deste laboratório.
 
 <h2>Compilação</h2>
 
