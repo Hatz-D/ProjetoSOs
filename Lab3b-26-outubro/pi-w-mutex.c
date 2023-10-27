@@ -12,7 +12,7 @@ void* calculaPi(void* arguments) {
     int slice = args[1];
     
     double factor;
-    double sum = 0;
+    double sum = 0.0;
     int inicio = n * slice;
     int fim = inicio + slice;
     
