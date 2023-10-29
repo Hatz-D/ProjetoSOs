@@ -7,13 +7,18 @@ int tempo = 0;
 
 pthread_mutex_t mutex;
 
-void* pessoaNaEscada(void* arguments) {
-	int** args = (int**) arguments;
+typedef struct {
+	int* instantes;
+	int* fluxos;
+	int i;
+} thread_arguments;
 
-	int* instantes = args[0];
-	int* fluxos = args[1];
-	int N = *args[2];
-	int i = *args[3];
+void* pessoaNaEscada(void* arguments) {
+	thread_arguments* args = (thread_arguments*) arguments;
+
+	int* instantes = (*args).instantes;
+	int* fluxos = (*args).fluxos;
+	int i = (*args).i;
 
 	if(i == 0) {
 		pthread_mutex_lock(&mutex);
@@ -49,21 +54,17 @@ int main(int argc, char* argv[]) {
 
 	srand(time(NULL));
 
-	int ** arguments = (int**) malloc(4 * sizeof(int*));
-
-	arguments[0] = malloc(N * sizeof(int));
-	arguments[1] = malloc(N * sizeof(int));
-	arguments[2] = malloc(sizeof(int));
-	*arguments[2] = N;
+	int* instantes = (int*) malloc(N * sizeof(int));
+	int* fluxos = (int*) malloc(N * sizeof(int));
 
 	for(int i = 0; i < N; i++){
-		if(i == 0) {arguments[0][0] = rand() % 10;}
+		if(i == 0) {instantes[0] = rand() % 10;}
 		else {
 			int tempo_aleatorio = rand() % 20;
-			arguments[0][i] = (tempo == 10 ? tempo_aleatorio++ : tempo_aleatorio) + arguments[0][i-1];
+			instantes[i] = instantes[i-1] + (tempo_aleatorio == 10 || tempo_aleatorio == 0) ? tempo_aleatorio++ : tempo_aleatorio;
 		}
 
-		arguments[1][i] = rand() % 2;;
+		fluxos[i] = rand() % 2;
 	}
 
 	pthread_t* thread_array = malloc(N * sizeof(pthread_t));
@@ -71,8 +72,11 @@ int main(int argc, char* argv[]) {
 	pthread_mutex_init(&mutex, NULL);
 
 	for(int i = 0; i < N; i++) {
-                arguments[3] = malloc(sizeof(int));
-                *arguments[3] = i;
+                thread_arguments* arguments = (thread_arguments*) malloc(sizeof(thread_arguments));
+
+		(*arguments).instantes = instantes;
+		(*arguments).fluxos = fluxos;
+		(*arguments).i = i;
 
 		pthread_create(&thread_array[i], NULL, pessoaNaEscada, (void*)arguments);
 	}
