@@ -28,14 +28,14 @@ int main(int argc, char* argv[]) {
 		printf("\n%d %d", instantes[i], fluxos[i]);
 	}
 	
-	/*
+/*	
 	instantes[0] = 5;
 	instantes[1] = 10;
 	instantes[2] = 16;
 	fluxos[0] = 0;
 	fluxos[1] = 1;
 	fluxos[2] = 0;
-	*/
+*/	
 
 	int tempo_total = 0;
 	int contador = 10;
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
 		if(computados[i] == 0) {
 			if(i == 0) {tempo_total += instantes[i] + 10;}
 			else {
-				if(fluxos[i] != fluxos[i-1] && instantes[i] - instantes[i-1] < 10) {tempo_total = instantes[i] - instantes[i-1] + 10;}
+				if(fluxos[i] != fluxos[i-1] && tempo_total > instantes[i]) {tempo_total += 10;}
 				else {tempo_total = instantes[i] + 10;}
 			}
 					
