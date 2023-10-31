@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 	int* instantes = (int*) malloc(N * sizeof(int));
 	int* fluxos = (int*) malloc(N * sizeof(int));
 	int* computados = (int*) calloc(N, sizeof(int));
-/*	
+	
 	for(int i = 0; i < N; i++){
 		if(i == 0) {instantes[0] = rand() % 10;}
 		else {
@@ -27,17 +27,17 @@ int main(int argc, char* argv[]) {
 
 		printf("\n%d %d", instantes[i], fluxos[i]);
 	}
-*/	
+	
+/*	
 
-	instantes[0] = 3;
-	instantes[1] = 6;
-	instantes[2] = 11;
-	instantes[3] = 17;
+	instantes[0] = 5;
+	instantes[1] = 10;
+	instantes[2] = 16;
+	
 	fluxos[0] = 0;
 	fluxos[1] = 1;
 	fluxos[2] = 0;
-	fluxos[3] = 1;
-
+*/
 
 	int tempo_total = 0;
 	int contador = 10;
@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
 		if(computados[i] == 0) {
 			if(i == 0) {tempo_total += instantes[i] + 10;}
 			else {
-				if(fluxos[i] != fluxos[i-1] && tempo_total > instantes[i]) {tempo_total += 10;}
+				if(tempo_total > instantes[i]) {tempo_total += 10;}
 				else {tempo_total = instantes[i] + 10;}
 			}
 					
@@ -56,22 +56,26 @@ int main(int argc, char* argv[]) {
 			contador = 10;
 		}
 
-		while(j < N && contador - (instantes[j] - instantes[j-1]) > 0) {
-			if(fluxos[i] == fluxos[j] && computados[j] == 0) {
-				if(tempo_total > instantes[j] + 10) {tempo_total += 0;}
-				else {tempo_total = instantes[j] + 10;}
-			
-				computados[j] = 1;
-				contador = 10;
-			}
-		
-		
+		while(j < N ) {
+            		if(contador - (instantes[j] - instantes[j-1]) > 0 || tempo_total > instantes[j]) {
+              			if(fluxos[i] == fluxos[j] && computados[j] == 0) {
+                			if(tempo_total > instantes[j] + 10) {tempo_total += 0;}
+                			else if(tempo_total > instantes[j]) {tempo_total = instantes[j] + 10;}
+                			else {tempo_total += 10;}
+            
+                		computados[j] = 1;
+                		contador = 10;
+            			}
+        
+            			else{contador -= instantes[j] - instantes[j-1];}
 
-			else{contador -= instantes[j] - instantes[j-1];}
+        	    		j++;
+        		}
 
-			j++;
-		}
-
+			else{break;}
+                   
+        	}
+	
 		i++;
 		j = i + 1;
 	}
