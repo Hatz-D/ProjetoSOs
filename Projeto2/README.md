@@ -54,10 +54,14 @@ Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se ne
 
 <hr>
 <h2>Execução</h2>
-
+<h3>escadarolante.c</h3>
+h
 Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1]</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code> a.out</code> pelo nome do arquivo gerado no comando anterior.
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/stderrProjeto2.png" alt = "Mensagem de erro ao informar parâmetros errôneos">
+
+
+<h3>escadarolante2.c</h3>
 
 <ul>
 <li><code>[Argumento 1]</code>: Quantidade de pessoas a utilizar a escada rolante (inteiro).</li>
