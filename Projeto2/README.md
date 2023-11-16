@@ -60,13 +60,12 @@ Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1]<
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/stderrProjeto2.png" alt = "Mensagem de erro ao informar parâmetros errôneos">
 
-
-<h3>escadarolante2.c</h3>
-
 <ul>
 <li><code>[Argumento 1]</code>: Quantidade de pessoas a utilizar a escada rolante (inteiro).</li>
 </ul>
 
+
+<h3>escadarolante2.c</h3>
 <hr>
 <h2>Resultados</h2>
 
