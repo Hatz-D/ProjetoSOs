@@ -33,9 +33,12 @@
 
 
 <h4>escadarolante2.c</h4>
-<p>O código utiliza uma estrutura de dados chamada Pessoa, que contém informações sobre o instante em que uma pessoa chega à escada (instante) e o sentido do seu movimento na escada (fluxo). A alocação dinâmica de memória é realizada para armazenar as informações de todas as pessoas.
-A lógica principal do código está na parte do cálculo do tempo total. O código percorre cada pessoa e, para cada uma delas, verifica se há alguma outra pessoa na escada que pode causar conflito de fluxo. Se houver, ajusta o tempo total para garantir que a pessoa atual possa utilizar a escada sem colidir com outras.
+<p>O código utiliza uma estrutura de dados chamada Pessoa, que contém informações sobre o instante em que uma pessoa chega à escada (instante) e o sentido do seu movimento na escada (fluxo),<code> 0 da esquerda para direita e 1 da direita para esquerda</code>. A alocação dinâmica de memória é realizada para armazenar as informações de todas as pessoas. A lógica principal do código está na parte do cálculo do tempo total. O código percorre cada pessoa e, para cada uma delas, verifica se há alguma outra pessoa na escada que pode causar conflito de fluxo. Se houver, ajusta o tempo total para garantir que a pessoa atual possa utilizar a escada sem colidir com outras.
+No cálculo do tempo total, o programa percorre cada pessoa na escada e determina o tempo necessário pra que ela se mova. O tempo é ajustado com base nas condições específicas: se é a primeira pessoa, o tempo é seu instante de chegada mais 10 segundos, caso contrário, o tempo depende do instante da pessoa anterior e é incrementado em 10 segundos.
 
+Em seguida, o programa verifica as pessoas subsequentes, considerando a direção do fluxo e o espaço entre elas. Se duas pessoas têm o mesmo fluxo, o programa verifica se é possível que a segunda pessoa suba imediatamente após a primeira. Se possível, o tempo total é ajustado e a segunda pessoa é marcada como processada. Se as pessoas têm fluxos opostos, o programa reduz o contador com base no tempo entre elas.
+
+O loop continua para as demais pessoas, garantindo que o tempo total leve em conta as condições específicas de cada caso. O resultado final é o tempo necessário pra que todas as pessoas passem pela escada rolante.  
 O loop externo percorre todas as pessoas, e o loop interno compara a pessoa atual com as pessoas subsequentes. Se as condições para utilização da escada são atendidas, o tempo total é ajustado e o contador é reiniciado. Se não, o loop interno é interrompido.
 
 Ao final da execução, o código imprime o tempo total necessário para que todas as pessoas utilizem a escada sem problemas de concorrência.
