@@ -19,15 +19,27 @@
 
 <h2>Desnvolvimento</h2>
 <h3>Problema</h3>
-O problema identificado no exercício proposto é a concorrência relativa ao uso da escada rolante bidirecional, mais precisamente no que diz respeito ao sentido em que ela estará operando (da ponta esquerda para a ponta direita ou vice-versa) para que os transeuntes possam mudar de andar de acordo com a ordem em que chegam à escada. Ademais, também é necessário calcular o tempo final em que a escada será desligada, ou seja, o momento em que não há mais pessoas para utilizar a escada rolante.
+
+<p>O problema apresentado no exercício refere-se à competição pelo uso da escada rolante bidirecional, especificamente em relação à direção em que ela estará funcionando (da ponta esquerda para a ponta direita ou vice-versa). Isso permite que os pedestres possam mudar de andar conforme a ordem em que chegam à escada e a direção da mesma. Além disso, é essencial calcular o momento em que a escada será desligada, ou seja, quando não houver mais pessoas para utilizá-la.</p>
 
 <hr>
 <h3>Solução</h3>
+<h4>escadarolante.c</h4>
 <p>O código desenvolvido para solucionar o problema supracitado é baseado em um método iterativo, uma vez que dessa forma é mais fácil de realizar comparações entre os momentos em que as pessoas chegam à escada e responder de acordo. Ademais, o método iterativo também possibilita um maior controle em relação à ordem em que as pessoas serão processads/computadas para o cálculo do tempo final em que a escada rolante irá ser desligada, que é a principal estratégia adotada pelo grupo para a solução do problema.</p>
 
 <p>Inicialmente o código importa as bibliotecas necessárias, como <code>stdio</code> para entrada e saída padrão, <code>stdlib</code> para alocação de memória e <code>time</code> para geração de números aleatórios relativos aos momentos em que as pessoas chegam à escada rolante e a direção em que irão. Após isso, três vetores relativos aos momentos em que as pessoas chegam à escada rolante, as direções de cada pessoa e as pessoas que já foram computados são criados dinamicamente. Em seguida, o código procede para popular os vetores de instantes e fluxos de pessoas de acordo com um número pseudoaleatório gerado e mapeado para um intervalo determinado de acordo com o tempo atual, levando em consideração que duas pessoas não podem chegar à escada ao mesmo tempo e que uma pessoa não pode chegar à escada no momento de seu desligamento, a fim de evitar o problema de deadlock. Por fim, manifestando-se através de dois laços aninhados while, inicialmente a primeira pessoa a chegar na escada é computada seguida por todas aquelas que irão utilizar a escada rolante anteriormente ao seu primeiro desligamento. Em seguida, a primeira pessoa a chegar na escada rolante no fluxo oposto da primeira pessoa é computada, assim como todas as pessoas que irão seguir no mesmo fluxo anteriormente ao próximo desligamento da escada. O algoritmo segue essa sequência de passos, calculando os tempos parciais de desligamento da escada rolante.</p>
 
 <p>O programa aceita um argumento da linha de comando, representando a quantidade de pessoas que irão utilizar a escada rolante. Ao término da execução, o programa exibe os momentos em que cada pessoa chega à escada rolante, a direção em que irão e, ao fim, o tempo final em que a escada rolante será desligada.</p>
+
+
+<h4>escadarolante2.c</h4>
+<p>O código utiliza uma estrutura de dados chamada Pessoa, que contém informações sobre o instante em que uma pessoa chega à escada (instante) e o sentido do seu movimento na escada (fluxo). A alocação dinâmica de memória é realizada para armazenar as informações de todas as pessoas.
+A lógica principal do código está na parte do cálculo do tempo total. O código percorre cada pessoa e, para cada uma delas, verifica se há alguma outra pessoa na escada que pode causar conflito de fluxo. Se houver, ajusta o tempo total para garantir que a pessoa atual possa utilizar a escada sem colidir com outras.
+
+O loop externo percorre todas as pessoas, e o loop interno compara a pessoa atual com as pessoas subsequentes. Se as condições para utilização da escada são atendidas, o tempo total é ajustado e o contador é reiniciado. Se não, o loop interno é interrompido.
+
+Ao final da execução, o código imprime o tempo total necessário para que todas as pessoas utilizem a escada sem problemas de concorrência.
+
 
 <hr>
 <h2>Compilação</h2>
