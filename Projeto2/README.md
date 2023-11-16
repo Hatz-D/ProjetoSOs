@@ -47,32 +47,37 @@ Ao final da execução, o código imprime o tempo total necessário para que tod
 
 <hr>
 <h2>Compilação</h2>
-
+<h3>escadarolante.c</h3>
 Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal Linux: <code>sudo yum install gcc</code>. A compilação do arquivo transferencia.c deste repositório pode ser realizada da seguinte forma: <code>gcc escadarolante.c</code>. Após isso, um arquivo <code>a.out</code> será gerado.
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/compilacaoProjeto2.png" alt="Compilação">
 
+<h3>escadarolante2.c></h3>
+Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se necessária a utilização do compilador GCC. Caso não o tenha instalado, basta digitar o seguinte comando em um terminal Linux: <code>sudo yum install gcc</code>. A compilação do arquivo transferencia.c deste repositório pode ser realizada da seguinte forma: <code>gcc escadarolante2.c</code>. Após isso, um arquivo <code>a.out</code> será gerado.
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/compila%C3%A7%C3%A3oProjeto2%20(escada2).png" alt= "Compílação 02">
+
 <hr>
 <h2>Execução</h2>
 <h3>escadarolante.c</h3>
-h
 Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1]</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code> a.out</code> pelo nome do arquivo gerado no comando anterior.
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/stderrProjeto2.png" alt = "Mensagem de erro ao informar parâmetros errôneos">
-
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/stderrProjeto2.png" alt = "Mensagem de erro ao informar parâmetros errôneamente."
 <ul>
 <li><code>[Argumento 1]</code>: Quantidade de pessoas a utilizar a escada rolante (inteiro).</li>
 </ul>
 
-
-<h3>escadarolante2.c</h3>
 <hr>
 <h2>Resultados</h2>
-
+<h3>escadarolante.c</h3>
 A saída do código mostra os instantes em que cada pessoa chegou à escada rolante e o seu fluxo. Ao fim, também é mostrado o tempo final em que a escada rolante é desligada, isto é, quando não há mais pessoas que irão utilizar a escada.  
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/execucaoProjeto2.png" alt="Bateria de testes">
 
+<h3>escadarolante2.c</h3>
+A saída mostra o tempo final em que a escada rolante é desligada,isto é, quando não há mais pessoas que irão utilizar a escada
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/execu%C3%A7%C3%A3oProjeto2(escada2).png" alt = "Testes para execução">
 <hr>
 <h2>Geração do log de execução</h2>
 
