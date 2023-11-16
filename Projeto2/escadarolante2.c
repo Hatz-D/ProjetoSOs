@@ -24,19 +24,19 @@ int main() {
     int contador = 10;
 
     for (int i = 0; i < N; i++) {
-        if (pessoas[i].instante == -1) continue; // Pessoa já considerada
+        if (pessoas[i].instante == -1) continue; 
 
         tempo_total = (i == 0) ? pessoas[i].instante + 10 : (tempo_total > pessoas[i].instante) ? tempo_total + 10 : pessoas[i].instante + 10;
         contador = 10;
 
         for (int j = i + 1; j < N; j++) {
-            if (pessoas[j].instante == -1) continue; // Pessoa já considerada
+            if (pessoas[j].instante == -1) continue;
 
             if (contador - (pessoas[j].instante - pessoas[j - 1].instante) > 0 || tempo_total > pessoas[j].instante) {
                 if (pessoas[i].fluxo == pessoas[j].fluxo) {
                     tempo_total = (tempo_total > pessoas[j].instante + 10) ? tempo_total : (tempo_total > pessoas[j].instante) ? pessoas[j].instante + 10 : tempo_total + 10;
                     contador = 10;
-                    pessoas[j].instante = -1; // Marcar pessoa como considerada
+                    pessoas[j].instante = -1;
                 } else {
                     contador -= pessoas[j].instante - pessoas[j - 1].instante;
                 }
