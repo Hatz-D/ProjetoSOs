@@ -23,7 +23,7 @@
 <p>O problema apresentado no exercício refere-se à competição pelo uso da escada rolante bidirecional, especificamente em relação à direção em que ela estará funcionando (da ponta esquerda para a ponta direita ou vice-versa). Isso permite que os pedestres possam mudar de andar conforme a ordem em que chegam à escada e a direção da mesma. Além disso, é essencial calcular o momento em que a escada será desligada, ou seja, quando não houver mais pessoas para utilizá-la.</p>
 
 <hr>
-<h3>Solução</h3>>
+<h3>Solução</h3>
 
 <p>O código utiliza uma estrutura de dados chamada Pessoa, que contém informações sobre o instante em que uma pessoa chega à escada (instante) e o sentido do seu movimento na escada (fluxo),<code> 0 da esquerda para direita e 1 da direita para esquerda</code>. A alocação dinâmica de memória é realizada para armazenar as informações de todas as pessoas. A lógica principal do código está na parte do cálculo do tempo total. O código percorre cada pessoa e, para cada uma delas, verifica se há alguma outra pessoa na escada que pode causar conflito de fluxo. Se houver, ajusta o tempo total para garantir que a pessoa atual possa utilizar a escada sem colidir com outras.
 
@@ -49,7 +49,8 @@ Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se ne
 <h2>Execução</h2>
 Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] [Argumento 2]</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code> a.out</code> pelo nome do arquivo gerado no comando anterior.
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/stderrProjeto2.PNG" alt = "Mensagem de erro ao informar parâmetros errôneamente."
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/stderrProjeto2.PNG" alt = "Mensagem de erro ao informar parâmetros errôneamente.">
+
 <ul>
 <li><code>[Argumento 1]</code>: Quantidade de pessoas a utilizar a escada rolante (inteiro).</li>
 <li><code>[Argumento 2]</code>: Modo de povoamento do vetor de pessoas. 0 = manual. 1 = automático.
@@ -61,7 +62,7 @@ A saída do código mostra os instantes em que cada pessoa chegou à escada rola
 
 <h3>Modo automático</h3>
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/automaticoProjeto2.PNGg" alt="Bateria de testes">
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/automaticoProjeto2.PNG" alt="Bateria de testes">
 
 <h3>Modo manual</h3>
 
