@@ -71,6 +71,6 @@ A saída do código mostra os instantes em que cada pessoa chegou à escada rola
 <hr>
 <h2>Geração do log de execução</h2>
 
-O log de execução do programa foi gerado através do seguinte comando: <code>./escadarolante.bin X >> logs</code>, que representa o append da saída do código no arquivo <code>logs</code>.
+O log de execução do programa foi gerado através do seguinte comando: <code>./escadarolante.bin X Y >> logs</code>, que representa o append da saída do código no arquivo <code>logs</code>.
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/geracaologsProjeto2.png" alt="Geração do log de execução">
