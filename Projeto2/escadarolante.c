@@ -2,30 +2,47 @@
 #include <time.h>
 #include <stdlib.h>
 
-int main(int argc, char* argv[]) {
-	if (argc != 2) {
-        	fprintf(stderr, "Arg1 = Quantidade de pessoas na escada rolante.\n");
-        	return 1;
-    }
-	int N = strtol(argv[1], NULL, 10);
+typedef struct {
+    int instante; // Instante em que a pessoa chegou à escada
+    int fluxo;    // Direção do fluxo da pessoa 
+} Pessoa;
 
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        fprintf(stderr, "Arg1 = Quantidade de pessoas na escada rolante.Arg2 = Entrada manual ou pseudoaleatória\n");
+        return 1;
+    }
+
+    int N = strtol(argv[1], NULL, 10);
+    int opcao = strtol(argv[2], NULL, 10);
+
+    // Alocando dinamicamente um array de estruturas Pessoa
+    Pessoa* pessoas = (Pessoa*)malloc(N * sizeof(Pessoa));
+
+    // Caso as pessoas sejam adicionadas manualmente
+    if(!opcao) {
+    	printf("Informe os dados para cada pessoa (instante fluxo):\n");
+
+    	for (int i = 0; i < N; i++) {
+        	scanf("%d %d", &pessoas[i].instante, &pessoas[i].fluxo);
+    	}
+    }
+
+    // Caso as pessoas sejam adicionadas automaticamente
+    else {
 	srand(time(NULL));
 
-	int* instantes = (int*) malloc(N * sizeof(int));
-	int* fluxos = (int*) malloc(N * sizeof(int));
-	int* computados = (int*) calloc(N, sizeof(int));
-	
-	for(int i = 0; i < N; i++){
-		if(i == 0) {instantes[0] = rand() % 10;}
+    	for(int i = 0; i < N; i++){
+		if(i == 0) {pessoas[0].instante = rand() % 10;}
 		else {
 			int tempo_aleatorio = rand() % 12;
 			if(tempo_aleatorio == 0 || tempo_aleatorio == 10) {tempo_aleatorio++;}
-			instantes[i] = instantes[i-1] + tempo_aleatorio;
+			pessoas[i].instante = pessoas[i-1].instante + tempo_aleatorio;
 			int k = i - 1;
 
-			while(instantes[k] + 10 >= instantes[i] && k >= 0) {
-                                if(instantes[k] + 10 == instantes[i]) {
-					instantes[i] += 1;
+			while(pessoas[k].instante + 10 >= pessoas[i].instante && k >= 0) {
+                                if(pessoas[k].instante + 10 == pessoas[i].instante) {
+					pessoas[i].instante += 1;
 					break;
 				}
 
@@ -33,53 +50,46 @@ int main(int argc, char* argv[]) {
                         }
 		}
 
-		fluxos[i] = rand() % 2;
+		pessoas[i].fluxo = rand() % 2;
 
-		printf("\n%d %d", instantes[i], fluxos[i]);
+		printf("\n%d %d", pessoas[i].instante, pessoas[i].fluxo);
 	}
-	
-	int tempo_total = 0;
-	int contador = 10;
-	int i = 0;
-	int j = 1;
+    
+    }
 
-	while(i < N) {
-		if(computados[i] == 0) {
-			if(i == 0) {tempo_total += instantes[i] + 10;}
-			else {
-				if(tempo_total > instantes[i]) {tempo_total += 10;}
-				else {tempo_total = instantes[i] + 10;}
-			}
-					
-			computados[i] = 1;
-			contador = 10;
-		}
+    int tempo_total = 0;
+    int contador = 10;  
 
-		while(j < N ) {
-            		if(contador - (instantes[j] - instantes[j-1]) > 0 || tempo_total > instantes[j]) {
-              			if(fluxos[i] == fluxos[j] && computados[j] == 0) {
-                			if(tempo_total > instantes[j] + 10) {tempo_total += 0;}
-                			else if(tempo_total > instantes[j]) {tempo_total = instantes[j] + 10;}
-                			else {tempo_total += 10;}
-            
-                		computados[j] = 1;
-                		contador = 10;
-            			}
-        
-            			else{contador -= instantes[j] - instantes[j-1];}
-
-        	    		j++;
-        		}
-
-			else{break;}
-                   
-        	}
-	
-		i++;
-		j = i + 1;
+    for (int i = 0; i < N; i++) {
+        if (pessoas[i].instante != -1) {
+		tempo_total = (i == 0) ? pessoas[i].instante + 10 : (tempo_total > pessoas[i].instante) ? tempo_total + 10 : pessoas[i].instante + 10;
+        	contador = 10;	
+		pessoas[i].instante = -1;
 	}
 
-	printf("\n\nTempo final: %d\n", tempo_total);
+        for (int j = i + 1; j < N; j++) {
+            // Verificando se há espaço suficiente entre as pessoas ou se o tempo total é maior que o instante da próxima pessoa
+            if (contador - (pessoas[j].instante - pessoas[j - 1].instante) > 0 || tempo_total > pessoas[j].instante) {
+                // Verificando se as pessoas têm o mesmo fluxo (direção)
+                if (pessoas[i].fluxo == pessoas[j].fluxo && pessoas[j].instante != -1) {
+                    tempo_total = (tempo_total > pessoas[j].instante + 10) ? tempo_total : (tempo_total > pessoas[j].instante) ? pessoas[j].instante + 10 : tempo_total + 10;
+                    contador = 10; 
+                    pessoas[j].instante = -1;
+                } 
 
-	return 0;
+		else {
+                    contador -= pessoas[j].instante - pessoas[j - 1].instante; // Reduzindo o contador com base no tempo entre as pessoas
+                }
+            } 
+	    else {break;}
+        }
+    }
+
+  
+    printf("\n\nTempo final: %d\n", tempo_total);
+
+    // Liberando a memória alocada para o array de pessoas
+    free(pessoas);
+
+    return 0;
 }
