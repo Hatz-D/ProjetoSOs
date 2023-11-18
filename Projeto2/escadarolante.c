@@ -5,6 +5,7 @@
 typedef struct {
     int instante; // Instante em que a pessoa chegou à escada
     int fluxo;    // Direção do fluxo da pessoa 
+    int computado; // Se já foi computado
 } Pessoa;
 
 int main(int argc, char* argv[]) {
@@ -36,7 +37,8 @@ int main(int argc, char* argv[]) {
    	pessoas = (Pessoa*)malloc(N * sizeof(Pessoa));
 
 	for(int i = 0; i < N; i++) {
-		fscanf(input_file, "%d %d", &pessoas[i].instante, &pessoas[i].fluxo);	
+		fscanf(input_file, "%d %d", &pessoas[i].instante, &pessoas[i].fluxo);
+		pessoas[i].computado = 0;	
 	}
 
 	 // Fechando o arquivo
@@ -56,6 +58,7 @@ int main(int argc, char* argv[]) {
 
         	for (int i = 0; i < N; i++) {
                		scanf("%d %d", &pessoas[i].instante, &pessoas[i].fluxo);
+			pessoas[i].computado = 0;
         	}
    	 }	
 
@@ -82,6 +85,7 @@ int main(int argc, char* argv[]) {
                 	}
 
                 	pessoas[i].fluxo = rand() % 2;
+			pessoas[i].computado = 0;
 
                 	printf("\n%d %d", pessoas[i].instante, pessoas[i].fluxo);
         	}
@@ -90,31 +94,39 @@ int main(int argc, char* argv[]) {
     }
 
     int tempo_total = 0;
-    int contador = 10;  
+    int contador = 10; 
+    int placeholder = 0; 
 
     for (int i = 0; i < N; i++) {
-        if (pessoas[i].instante != -1) {
-		tempo_total = (i == 0) ? pessoas[i].instante + 10 : (tempo_total > pessoas[i].instante) ? tempo_total + 10 : pessoas[i].instante + 10;
-        	contador = 10;	
-		pessoas[i].instante = -1;
+        if (pessoas[i].computado == 0) {
+		tempo_total = (i == 0) ? pessoas[i].instante + 10 : (tempo_total > pessoas[i].instante) ? tempo_total + 10 : pessoas[i].instante + 10;	
+		pessoas[i].computado = 1;
+		placeholder = 1;
 	}
 
-        for (int j = i + 1; j < N; j++) {
-            // Verificando se há espaço suficiente entre as pessoas ou se o tempo total é maior que o instante da próxima pessoa
-            if (contador - (pessoas[j].instante - pessoas[j - 1].instante) > 0 || tempo_total > pessoas[j].instante) {
-                // Verificando se as pessoas têm o mesmo fluxo (direção)
-                if (pessoas[i].fluxo == pessoas[j].fluxo && pessoas[j].instante != -1) {
-                    tempo_total = (tempo_total > pessoas[j].instante + 10) ? tempo_total : (tempo_total > pessoas[j].instante) ? pessoas[j].instante + 10 : tempo_total + 10;
-                    contador = 10; 
-                    pessoas[j].instante = -1;
-                } 
+	contador = 10;
 
-		else {
-                    contador -= pessoas[j].instante - pessoas[j - 1].instante; // Reduzindo o contador com base no tempo entre as pessoas
-                }
-            } 
-	    else {break;}
-        }
+	if(placeholder) {
+        	for (int j = i + 1; j < N; j++) {
+            		// Verificando se há espaço suficiente entre as pessoas ou se o tempo total é maior que o instante da próxima pessoa
+            		if (contador - (pessoas[j].instante - pessoas[j - 1].instante) > 0 || tempo_total > pessoas[j].instante) {
+                		// Verificando se as pessoas têm o mesmo fluxo (direção)
+                		if (pessoas[i].fluxo == pessoas[j].fluxo && pessoas[j].computado == 0) {
+                    			tempo_total = (tempo_total > pessoas[j].instante + 10) ? tempo_total : (tempo_total > pessoas[j].instante) ? pessoas[j].instante + 10 : tempo_total + 10;
+                    			contador = 10; 
+                    			pessoas[j].computado = 1;
+                		} 
+
+				else {
+                    			contador -= pessoas[j].instante - pessoas[j - 1].instante; // Reduzindo o contador com base no tempo entre as pessoas
+               		 	}
+           	 	}
+
+	    		else {break;}
+        	}
+
+		placeholder = 0;
+   	}
     }
 
   

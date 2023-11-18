@@ -36,8 +36,7 @@ O loop externo percorre todas as pessoas, e o loop interno compara a pessoa atua
 
 Ao final da execução, o código imprime o tempo total necessário para que todas as pessoas utilizem a escada sem problemas de concorrência.
 
-Ademais, o programa aceita dois argumentos da linha de comando, representando a quantidade de pessoas que irão utilizar a escada rolante e o modo de povoamento do vetor relativo às pessoas que irão utilizar a escada rolante, manual ou automático. Para o modo manual, as informações relativas a cada pessoa deverão ser indicadas pelo terminal. Para o modo automático, o vetor é populado de acordo com um número pseudoaleatório gerado e mapeado para um intervalo determinado de acordo com o tempo atual, levando em consideração que duas pessoas não podem chegar à escada ao mesmo tempo e que uma pessoa não pode chegar à escada no momento de seu desligamento, a fim de evitar o problema de deadlock. Ao término da execução, o programa exibe os momentos em que cada pessoa chega à escada rolante, a direção em que irão e, ao fim, o tempo final em que a escada rolante será desligada.
-
+Ademais, o programa aceita um argumento da linha de comando, representando o modo de povoamento do vetor relativo às pessoas que irão utilizar a escada rolante: manual, pseudoaleatório ou por meio de arquivo. Para o modo manual, as informações relativas a cada pessoa deverão ser indicadas pelo terminal. Para o modo pseudoaleatório, o vetor é populado de acordo com um número pseudoaleatório gerado e mapeado para um intervalo determinado de acordo com o tempo atual, levando em consideração que duas pessoas não podem chegar à escada ao mesmo tempo e que uma pessoa não pode chegar à escada no momento de seu desligamento, a fim de evitar o problema de deadlock. Para o modo de entrada por arquivo, as informações relativas a cada pessoa deverão estar presentes em um arquivo de testes, arquivo cujo nome deve ser informado pelo terminal durante a execução do programa. Ao término da execução, o programa exibe os momentos em que cada pessoa chega à escada rolante, a direção em que irão e, ao fim, o tempo final em que a escada rolante será desligada.
 
 <hr>
 <h2>Compilação</h2>
@@ -47,30 +46,33 @@ Para realizar a compilação dos códigos-fonte aqui disponibilizados, faz-se ne
 
 <hr>
 <h2>Execução</h2>
-Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1] [Argumento 2]</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code> a.out</code> pelo nome do arquivo gerado no comando anterior.
+Para executá-lo, basta digitar o seguinte comando: <code>./a.out [Argumento 1]</code>. Caso o arquivo gerado possua um nome diferente, basta substituir o arquivo <code> a.out</code> pelo nome do arquivo gerado no comando anterior.
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/stderrProjeto2.PNG" alt = "Mensagem de erro ao informar parâmetros errôneamente.">
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto2Stderr.png" alt = "Mensagem de erro ao informar parâmetros errôneamente.">
 
 <ul>
-<li><code>[Argumento 1]</code>: Quantidade de pessoas a utilizar a escada rolante (inteiro).</li>
-<li><code>[Argumento 2]</code>: Modo de povoamento do vetor de pessoas. 0 = manual. 1 = automático.
+<li><code>[Argumento 1]</code>: Modo de povoamento do vetor de pessoas. 0 = manual. 1 = automático. 2 = arquivo.</li>
 </ul>
 
 <hr>
 <h2>Resultados</h2>
 A saída do código mostra os instantes em que cada pessoa chegou à escada rolante e o seu fluxo. Ao fim, também é mostrado o tempo final em que a escada rolante é desligada, isto é, quando não há mais pessoas que irão utilizar a escada.  
 
-<h3>Modo automático</h3>
-
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/automaticoProjeto2.PNG" alt="Bateria de testes">
-
 <h3>Modo manual</h3>
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/manualProjeto2.PNG" alt="Bateria de testes">
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto2Manual.png" alt="Bateria de testes">
+
+<h3>Modo pseudoaleatório</h3>
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto2Pseudoaleatorio" alt="Bateria de testes">
+
+<h3>Modo por arquivo</h3>
+
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto2Arquivo.png" alt="Bateria de testes">
 
 <hr>
 <h2>Geração do log de execução</h2>
 
-O log de execução do programa foi gerado através do seguinte comando: <code>./escadarolante.bin X Y >> logs</code>, que representa o append da saída do código no arquivo <code>logs</code>.
+O log de execução do programa foi gerado através do seguinte comando: <code>./escadarolante.bin X >> logs</code>, que representa o append da saída do código no arquivo <code>logs</code>.
 
 <img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/geracaologsProjeto2.png" alt="Geração do log de execução">
