@@ -8,52 +8,84 @@ typedef struct {
 } Pessoa;
 
 int main(int argc, char* argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "Arg1 = Quantidade de pessoas na escada rolante.Arg2 = Entrada manual ou pseudoaleatória\n");
+    if (argc != 2) {
+        fprintf(stderr, "Arg1 = Entrada manual, pseudoaleatória ou por arquivo\n");
         return 1;
     }
 
-    int N = strtol(argv[1], NULL, 10);
-    int opcao = strtol(argv[2], NULL, 10);
+    int N;
+    Pessoa* pessoas;
+    int opcao = strtol(argv[1], NULL, 10);
 
-    // Alocando dinamicamente um array de estruturas Pessoa
-    Pessoa* pessoas = (Pessoa*)malloc(N * sizeof(Pessoa));
+    // Caso as pessoas sejam adicionadas por arquivo de testes
+    if(opcao == 2) {
+	char nomeArquivo[50];
+	printf("\nDigite o nome do arquivo de teste: ");
+	scanf("%s", nomeArquivo);
 
-    // Caso as pessoas sejam adicionadas manualmente
-    if(!opcao) {
-    	printf("Informe os dados para cada pessoa (instante fluxo):\n");
+    	FILE *input_file = fopen(nomeArquivo, "r"); // Abertura do arquivo
 
-    	for (int i = 0; i < N; i++) {
-        	scanf("%d %d", &pessoas[i].instante, &pessoas[i].fluxo);
+    	if(input_file == NULL) { // Checa se o arquivo foi aberto com sucesso
+        	printf("\nErro ao ler o arquivo!\n");
+        	return 1;
     	}
+
+	fscanf(input_file, "%d", &N);
+
+	// Alocando dinamicamente um array de estruturas Pessoa
+   	pessoas = (Pessoa*)malloc(N * sizeof(Pessoa));
+
+	for(int i = 0; i < N; i++) {
+		fscanf(input_file, "%d %d", &pessoas[i].instante, &pessoas[i].fluxo);	
+	}
+
+	 // Fechando o arquivo
+    	fclose(input_file);
     }
 
-    // Caso as pessoas sejam adicionadas automaticamente
-    else {
-	srand(time(NULL));
+    else{
+	printf("\nDigite a quantidade de pessoas na escada rolante: ");
+	scanf("%d", &N);
 
-    	for(int i = 0; i < N; i++){
-		if(i == 0) {pessoas[0].instante = rand() % 10;}
-		else {
-			int tempo_aleatorio = rand() % 12;
-			if(tempo_aleatorio == 0 || tempo_aleatorio == 10) {tempo_aleatorio++;}
-			pessoas[i].instante = pessoas[i-1].instante + tempo_aleatorio;
-			int k = i - 1;
+	// Alocando dinamicamente um array de estruturas Pessoa
+    	pessoas = (Pessoa*)malloc(N * sizeof(Pessoa));
 
-			while(pessoas[k].instante + 10 >= pessoas[i].instante && k >= 0) {
-                                if(pessoas[k].instante + 10 == pessoas[i].instante) {
-					pessoas[i].instante += 1;
-					break;
-				}
+	// Caso as pessoas sejam adicionadas manualmente
+    	if(opcao == 0) {
+        	printf("Informe os dados para cada pessoa (instante fluxo):\n");
 
-				else{k--;}
-                        }
-		}
+        	for (int i = 0; i < N; i++) {
+               		scanf("%d %d", &pessoas[i].instante, &pessoas[i].fluxo);
+        	}
+   	 }	
 
-		pessoas[i].fluxo = rand() % 2;
+   	 // Caso as pessoas sejam adicionadas automaticamente
+   	 else {
+       		 srand(time(NULL));
 
-		printf("\n%d %d", pessoas[i].instante, pessoas[i].fluxo);
-	}
+       		 for(int i = 0; i < N; i++){
+               		 if(i == 0) {pessoas[0].instante = rand() % 10;}
+               		 else {
+                       		 int tempo_aleatorio = rand() % 12;
+                        	if(tempo_aleatorio == 0 || tempo_aleatorio == 10) {tempo_aleatorio++;}
+                        		pessoas[i].instante = pessoas[i-1].instante + tempo_aleatorio;
+                        		int k = i - 1;
+
+                        		while(pessoas[k].instante + 10 >= pessoas[i].instante && k >= 0) {
+                                		if(pessoas[k].instante + 10 == pessoas[i].instante) {
+                                        		pessoas[i].instante += 1;
+                                        		break;
+                                		}
+
+                                		else{k--;}
+                        		}
+                	}
+
+                	pessoas[i].fluxo = rand() % 2;
+
+                	printf("\n%d %d", pessoas[i].instante, pessoas[i].fluxo);
+        	}
+    	}
     
     }
 
