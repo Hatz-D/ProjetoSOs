@@ -64,7 +64,7 @@ A saída do código mostra os instantes em que cada pessoa chegou à escada rola
 
 <h3>Modo pseudoaleatório</h3>
 
-<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto2Pseudoaleatorio" alt="Bateria de testes">
+<img src = "https://github.com/Hatz-D/ProjetoSOs/blob/main/src/projeto2Pseudoaleatorio.png" alt="Bateria de testes">
 
 <h3>Modo por arquivo</h3>
 
